@@ -28,11 +28,13 @@ Properties {
             $VersionSuffix = $env:APPVEYOR_REPO_TAG_NAME.SubString(6) # i.e. the part after "-"
         }
     }
+
+    $VersionSuffix = "EurAm" + $env:bamboo_buildNumber;
 }
 
 FormatTaskName ("`n" + ("-"*25) + "[{0}]" + ("-"*25) + "`n")
 
-Task Default -depends init, clean, dotnet-restore, bower-restore, dotnet-build, dotnet-test
+Task Default -depends init, clean, dotnet-restore, bower-restore, dotnet-build, dotnet-pack
 
 Task init {
 
