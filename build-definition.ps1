@@ -113,7 +113,7 @@ Task dotnet-pack {
 
         $library = $_
         $outputPath = Join-Path $ArtifactsPath $ArtifactsPathNuGet
-        $fullOutputPath = Join-Path $env:APPVEYOR_BUILD_FOLDER $outputPath
+        $fullOutputPath = Join-Path $env:nbamboo_build_working_directory $outputPath
 
         Write-Host ""
         Write-Host "Packaging $library to $fullOutputPath"
