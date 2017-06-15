@@ -120,9 +120,9 @@ Task dotnet-pack {
         Write-Host ""
 
         if ($VersionSuffix.Length -gt 0) {
-            exec { dotnet pack $library -c $BuildConfiguration --no-build -o $fullOutputPath --version-suffix $VersionSuffix }
+            exec { dotnet pack $library -c $BuildConfiguration --no-build -o $fullOutputPath --version-suffix $VersionSuffix /p:PackageVersion=1.0.1}
         } else {
-            exec { dotnet pack $library -c $BuildConfiguration --no-build -o $fullOutputPath }
+            exec { dotnet pack $library -c $BuildConfiguration --no-build -o $fullOutputPath /p:PackageVersion=1.0.1}
         }
     }
 }
